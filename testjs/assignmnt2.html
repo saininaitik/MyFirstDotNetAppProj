@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .name{
+            background-color: aquamarine;
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="one" onclick="one()"><br><br>
+    <input type="button" value="two" onclick="two()"><br><br>
+    
+    <div class="name">
+        
+    </div>
+    <script>
+        function one()
+        {
+            let a = document.getElementsByClassName("name")[0];
+            a.style.backgroundColor="red";
+        }    
+    </script>
+</body>
+</html>

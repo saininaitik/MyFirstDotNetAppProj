@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" name="button" id="button" value="submit" onclick="subbutton()">
+    <input type="text" name="" id="text">
+</body>
+<script>
+    function subbutton(){
+        let main = document.querySelector('#text').value;
+        // let put = /^[a-zA-Z]+$/;
+
+        //     if(main.match(put)){
+        //         alert("ok");
+        //     }else{
+        //         alert('Not Ok');
+        //     }
+
+        let put = /^[a-c]/;
+
+        if(main.match(put)){
+            alert("ok");
+        }else{
+            alert('Not Ok');
+        }   
+        
+    }
+</script>
+</html>

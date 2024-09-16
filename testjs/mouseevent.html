@@ -1,0 +1,94 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<button id="btn">Click me with the any mouse button : left,right,middle,right</button>
+<p id="message"></p>
+</body>
+<script>
+    
+    let btn=document.querySelector("#btn");
+    
+    btn.addEventListener('contextmenu',(e)=>{
+        e.preventDefault();
+    });   
+
+    btn.addEventListener('mouseup',(e)=>{
+        let msg = document.querySelector("#message");
+        switch(e.button){
+            case 0:
+                msg.textContent = 'Left mouse button clicked';
+                break;
+            case 1:
+                msg.textContent = 'Middle mouse button clicked';
+                break;
+            case 2:
+                msg.textContent = 'Right mouse button clicked';
+                break;
+            default:
+                msg.textContent = `unknown mouse button code: ${event.button}`;
+        }
+    });
+</script>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btnKeys">Click me with Alt,Shift,Ctrl pressed</button>
+    <p id="messageKeys"></p>
+</body>
+<script>
+    let btnKeys = document.querySelector("#btnKeys");
+    btnKeys.addEventListener('click',(e)=>{
+        let Keys = [];
+
+        if(e.shiftKey)Keys.push('shift');
+        if(e.ctrlKey)Keys.push('ctrl');
+        if(e.altKey)Keys.push('alt');
+        if(e.metaKey)Keys.push('meta');
+
+        let msg = document.querySelector('#messageKeys');
+        msg.textContent = "Keys:${Key.join('+')}";
+
+    });
+</script>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #track {
+            background-color: goldenrod;
+            height: 200px;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <p>Move your mouse to see its location</p>
+    <div id="track"></div>
+    <p id="log"></p>
+</body>
+<script>
+    let track = document.querySelector("#track");
+    track.addEventListener('mousemove', (e) => {
+        let log = document.querySelector('#log');
+        log.innerText = 
+            `ScreenX/Y: (${e.screenX}, ${e.screenY})\n` +
+            `ClientX/Y: (${e.clientX}, ${e.clientY})`;
+    });
+</script>
+</html>

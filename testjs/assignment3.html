@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            height: 100px;
+            width: 100px;
+            background-color: blueviolet;
+            transition: all linear 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="one" onclick="one()">
+    <br><br>
+    <input type="text" id="one" name=""> 
+    <br><br>
+    <input type="button" value="two" >
+    <br><br>
+    <input type="text" id="two" name="">
+    <br><br>
+    <input type="range" id="range" min="0" max="100" value="0" onchange="range()">
+     <span id="per">0 %</span>
+    <div class="main">
+
+    </div>
+    <script>
+        function range(){
+            let  c = document.getElementById("range").value;
+            //document.getElementById("per").innerHTML = c + " %";
+            document.getElementsByClassName("main")[0].style.width = c+"%" ;
+        }
+        function one()
+        {
+            let a = document.getElementById("one").value;
+            let b = document.getElementById("two").value;
+            let div = document.getElementsByClassName("main")[0];
+            div.style.width = a+"px";
+            div.style.heigth = b+"px";
+        }
+       
+    </script>
+</body>
+</html>

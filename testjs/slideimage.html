@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0%;
+            padding: 0%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main{
+            width: 35%;
+            height: 50vh;
+            background-color: aquamarine;
+            overflow: hidden;
+        }
+        .container{
+            width: 300%;
+            height: 50vh;
+            background-color: rgb(83, 88, 87);
+            display: flex;
+            object-fit: cover;
+            position: relative;
+            left: 0;
+            transition: all linear 0.3s;
+        }
+        /* .container:hover{
+            left: -220%;
+        }
+         */
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+             <img src="avg1.jpg" alt="picture" class="img1">
+            <img src="avg2.jpg" alt="picture" class="img2">
+            <img src="avg3.jpg" alt="picture" class="img3"> 
+        </div>
+    </div>
+    <input type="button" onclick="next()" value="next" id="first">
+    <input type="button" onclick="back()" value="back" id="second">
+</body>
+<script>
+    let a = 120;
+    function next(){
+       let b = document.getElementsByClassName("container")[0];
+        if(a == 120){
+            b.style.left = "-"+a+"%";
+            a=220;
+        } else if(a==220){
+            b.style.left = "-"+a+"%";
+            a=120;
+
+
+        }
+    }
+    function back(){
+       let b = document.getElementsByClassName("container")[0];
+        if(a == 220){
+            b.style.left = "-"+a+"%";
+            a=120;
+        } 
+        else if(a==120){
+            b.style.left = "-"+a+"%";
+            a=0;
+        }
+        else if(a==0){
+            b.style.left = "-"+a+"%";
+            a=220;
+        }
+    }
+
+   
+   
+</script>
+</html>

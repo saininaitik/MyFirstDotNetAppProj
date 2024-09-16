@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type=text],
+        input[type=password]{
+            border: 2px solid black;
+            height: 30px;
+            padding: 15px;
+            
+        }
+        .err{
+            color: red;
+            transition: all linear 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <form action="https://www.google.com" method="get" onsubmit="return Userclick()" name="f1">
+        <table align="center" border="1" cellpadding="10" rules="all">
+            <tr>
+                <td colspan="3">Simple validation </td>
+            </tr>
+            <tr>
+                <td>Enter your name </td>
+                <td><input type="text" name="name"><br><span class="err"></span></td>
+            </tr>
+            <tr>
+                <td>Enter your Email </td>
+                <td><input type="text" name="email"><br><span class="err"></span></td>
+            </tr>
+            <tr>
+                <td>Enter your password </td>
+                <td><input type="password" name="password"><br><span class="err"></span></td>
+                <td><input type="button" value="Show Password" onmousedown="showpassword()" onmouseup="hidepassword()"></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="submit"></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function Userclick(){
+            let name = document.f1.name.value;
+            let email = document.f1.email.value;
+            let password = document.f1.password.value;
+
+            if(name.length==0 || email.length==0 || password.length==0){
+                if(name.length == 0){
+                    document.getElementsByClassName("err")[0].innerHTML="please enter your name.";
+                    document.getElementsByTagName('input')[0].style.borderColor = "Red";
+                }else{
+                    document.getElementsByClassName("err")[0].innerHTML=""
+                    document.getElementsByTagName('input')[0].style.borderColor = "black";
+                }
+            
+          
+                if(email.length == 0){
+                    document.getElementsByClassName("err")[1].innerHTML="please enter your email.";
+                    document.getElementsByTagName('input')[1].style.borderColor = "Red";
+                }else{
+                    document.getElementsByClassName("err")[1].innerHTML=""
+                    document.getElementsByTagName('input')[1].style.borderColor = "black";
+                }
+         
+           
+                if(password.length == 0){
+                    document.getElementsByClassName("err")[2].innerHTML="please enter your password.";
+                    document.getElementsByTagName('input')[2].style.borderColor = "Red";
+                }else{
+                    document.getElementsByClassName("err")[2].innerHTML=""
+                    document.getElementsByTagName('input')[2].style.borderColor = "black";
+                }
+            } else{
+                document.getElementsByClassName("err")[0].innerHTML=""
+                document.getElementsByTagName('input')[0].style.borderColor = "black";
+
+                document.getElementsByClassName("err")[1].innerHTML=""
+                document.getElementsByTagName('input')[1].style.borderColor = "black";
+                
+                document.getElementsByClassName("err")[2].innerHTML=""
+                document.getElementsByTagName('input')[2].style.borderColor = "black";
+            }   
+            return false;
+        }
+        function showpassword(){
+            document.getElementsByTagName("input")[2].type="text"
+            document.getElementsByTagName('input')[3].value = "Hide password";
+        }
+        function hidepassword(){
+            document.getElementsByTagName("input")[2].type="password";
+            document.getElementsByTagName('input')[3].value = "show password";
+        }
+    </script>
+</body>
+</html>

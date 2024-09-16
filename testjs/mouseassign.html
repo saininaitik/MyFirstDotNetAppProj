@@ -1,0 +1,314 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Context Menu</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .main {
+            width: 100%;
+            height: 100%;
+            background-color: blueviolet;
+        }
+        .custom-menu {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .custom-menu li {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        .custom-menu li:hover {
+            background-color: #f0f0f0;
+        }
+        .custom-menu a {
+            text-decoration: none;
+            color: #000;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="main"></div>
+    <ul class="custom-menu" id="customMenu">
+        <li><a href="https://wa.me/1234567890" target="_blank">WhatsApp</a></li>
+        <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+        <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+        <li><a href="https://snapchat.com" target="_blank">Snapchat</a></li>
+         Add more items as needed -->
+    <!-- </ul>
+
+    <script>
+        const customMenu = document.getElementById('customMenu');
+        const mainDiv = document.querySelector('.main');
+
+        mainDiv.addEventListener('contextmenu', (e) => {
+            e.preventDefault(); // Prevent default context menu
+
+            // Position the custom menu
+            customMenu.style.display = 'block';
+            customMenu.style.left = `${e.pageX}px`;
+            customMenu.style.top = `${e.pageY}px`;
+        });
+
+        document.addEventListener('click', () => {
+            customMenu.style.display = 'none'; // Hide menu on click elsewhere
+        });
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Context Menu Example</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 80vh;
+            background-color: rgba(63, 173, 236, 0.616);
+        }
+        .main {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            position: relative; 
+        }
+        img {
+            width: 200px;
+            height: 200px;
+        }
+        .container {
+            position: absolute; 
+            top: 0px;
+            left: 0px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: white;
+            border: 1px solid #ccc;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            position: absolute;
+            display: none; 
+            z-index: 1; 
+        }
+
+        ul li {
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+        ul li:hover {
+            background-color: #f0f0f0;
+        }
+        .toolbox {
+            list-style: none;
+            width: 40%;
+            height: 10%;
+            float: right;
+            /* background-color: brown;  */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .toolbox .items {
+            gap: 1%;
+            display: flex;
+            width: 20%;
+            height: 5%;
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+        }
+        .toolbox .items li {
+            color: rgb(58, 39, 39);
+            position: relative;
+        }
+        .toolbox .items li:hover { 
+            cursor: pointer;
+            background-color: rgb(238, 227, 108);
+        }
+        .toolbox .items .item {
+            display: none;  
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f0f0f0;
+            z-index: 2;
+        }
+        .toolbox .items .item li {
+            padding: 8px 16px;
+        }
+        .toolbox .items .item li:hover {
+            background-color: #b8b0b0;
+        }
+        .toolbox .items .item #item3 {
+            display: none;  
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: #f0f0f0;
+            z-index: 3;
+        }
+        .toolbox .items .item .item3 li {
+            padding: 8px 16px;
+        }
+        .toolbox .items .item .item3 li:hover {
+            background-color: #b8b0b0;
+        }
+    </style>
+</head>
+<body>
+    <div class="toolbox">
+        <ul class="items">
+            <li>Sign Up</li>
+            <li>Login</li>
+            <li id="box">Menu 
+                <ul class="item">
+                    <li>Home</li>
+                    <li>Details</li>
+                    <li id="subbox">Contacts
+                        <ul id="item3">
+                            <li>9999999999</li>
+                            <li>6798425323</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <img src="avg1.jpg" alt="pic" class="container" id="boxmove">
+        <ul id="context-menu">
+            <li id="first">Width</li>
+            <li id="second">Height</li>
+            <li id="third">Delete</li>
+        </ul>
+    </div>
+    <h1 id="k">SHUBHAm</h1>
+    <script>
+        let box = document.querySelector(".container");
+        let contextMenu = document.getElementById("context-menu");
+
+        box.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+
+            contextMenu.style.display = 'block';
+            contextMenu.style.left = `${e.pageX}px`;
+            contextMenu.style.top = `${e.pageY}px`;    
+
+        });
+
+        document.addEventListener('click', () => {
+            contextMenu.style.display = 'none'; 
+        });
+
+        document.getElementById("first").addEventListener("click", () => {
+            let newWidth = prompt("Enter new width:", box.offsetWidth);
+            if (newWidth) {
+                box.style.width = newWidth + 'px';
+                box.style.transition = "2s";
+            }
+        });
+
+        document.getElementById("second").addEventListener("click", () => {
+            let newHeight = prompt("Enter new height:", box.offsetHeight);
+            if (newHeight) {
+                box.style.height = newHeight + 'px';
+                box.style.transition = "2s";
+            }
+        });
+
+        document.getElementById("third").addEventListener("click", () => {
+            if (confirm("Are you sure you want to delete this image?")) {
+                box.remove();
+            }
+        });
+
+        let isDragging = false;
+
+        box.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            isDragging = true;
+            document.addEventListener('mousemove', onMouseMove);
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                document.removeEventListener('mousemove', onMouseMove);
+            }
+        });
+
+        function onMouseMove(e) {
+            if (isDragging) {
+                box.style.left = `${e.pageX - box.offsetWidth / 2}px`;
+                box.style.top = `${e.pageY - box.offsetHeight / 2}px`;
+                document.getElementById("k").innerHTML = `${e.pageX} ${e.pageY}`;
+            }
+        }
+      
+        let menuButton = document.getElementById('box');
+        let submenu = document.querySelector('.item');
+        menuButton.addEventListener('click', () => {
+
+            if (submenu.style.display === 'block'){
+                submenu.style.display = 'none';
+            } else {
+                submenu.style.display = 'block';
+            }
+        });
+
+        submenu.addEventListener('click', () => {
+            submenu.style.display = 'none';
+        });
+        
+       
+        let menubox = document.getElementById('subbox');
+        let subbox = document.querySelector('#item3');
+
+
+        menubox.addEventListener('click', () => {
+            if (subbox.style.display == 'block') {
+                subbox.style.display = 'none';
+            } else {
+                subbox.style.display = 'block';
+            }
+        });
+        
+        subbox.addEventListener('click', () => {
+            subbox.style.display = 'none';
+        });   
+        
+        function hideAllMenus() {
+            submenu.style.display = 'none';
+            subbox.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" >
+        <label for="">Name :</label>
+        <input type="text" placeholder="Enter your name " id="name">
+        <br><br>
+        <label>Gender:</label>
+        <input type="radio" id="gender" name="gender" value="male" >
+        <label for="male">Male</label>
+        <input type="radio" id="genderr" name="gender" value ="female" >
+        <label for="female">Female</label>
+        <br><br>
+        <label for="">Date :</labe
+            l>
+        <input type="date" id="date">
+        <br> <br>
+        <input type="button" onclick="button()" value="click me">
+        <br><br>
+        <div class="main">
+
+        </div>
+    </form>
+    <script>
+        function button()
+        {
+            
+            let a=document.getElementById("name").value;
+
+            let b = document.getElementById("gender").checked;
+            let c = document.getElementById("genderr").checked;
+            let greeting;
+            if (b) {
+                greeting = "Hello Mr. :" + a;
+            } else if (c) {
+                greeting = "Hello Mrs. :" + a;
+            } else {
+                greeting = "Please select a gender.";
+            }
+           
+            let d = document.getElementById("date").value;
+            let dateOfBirth = new Date(d);
+            let todayDate = new Date();
+            if(dateOfBirth > todayDate)
+            {
+                document.getElementsByClassName("main")[0].innerHTML = "Please enter a correct date of birth.";
+            }
+            else{
+                let age = todayDate.getFullYear() - dateOfBirth.getFullYear();
+                let monthDifference = todayDate.getMonth() - dateOfBirth.getMonth();
+                
+                if (monthDifference === 0 && todayDate.getDate() < dateOfBirth.getDate()) {
+                    age--;  
+                }
+                let able;
+                if(age>=18){
+                    able = "You are able for vote";
+                }else{
+                    able = "You are not able for vote";
+                }
+                
+                document.getElementsByClassName("main")[0].innerHTML= greeting + " , "+"Your Age is :" + age + " , "+ able;
+            }
+
+            
+        }
+    </script>
+</body>
+</html>
