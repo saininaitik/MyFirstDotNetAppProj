@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .demo{
+            color: red;
+            transition: all linear 0.4s;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <p>Hello</p>
+    <p>Welcome</p>
+    <p>hiiiiiii</p>
+    <!-- <button onclick="k()">Change Color</button> -->
+    <script>
+        // function k(){
+        //     let pr = document.getElementsByTagName("p")[0];
+        //     pr.classList.toggle("demo"); //add,remove,toggle;
+
+        // }
+        window.onload = k;
+        let a =0;
+        function k() {
+            let pr = document.getElementsByTagName("p"); 
+
+            if (a == 0) {
+                pr[a].classList.add("demo");
+                pr[2].classList.remove("demo");
+                a = 1;
+            } else if (a == 1) {
+                pr[a].classList.add("demo");
+                pr[--a].classList.remove("demo");
+                a = 2;
+            } else if (a == 2) {
+                pr[a].classList.add("demo");
+                pr[--a].classList.remove("demo");
+                a = 0;
+            }
+            setTimeout("k()",1000);
+        }
+    </script>
+</body>
+</html>

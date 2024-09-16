@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0%;
+            padding: 0%;
+            width: 100%;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main{
+            width: 45%;
+            height: 70vh;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+        }
+        .context{
+            position: relative;
+            width: 80%;
+
+            height: 80%;
+            background-color: rgb(172, 126, 126);
+            border-radius: 10%;
+        }
+        .one{
+            position: absolute;
+            top: 10%;
+            margin-left: 10%;
+            width: 25%;
+            height: 25%;
+            background-color: yellow;
+            border-radius:10px ;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+            z-index: 3;
+        }
+       
+       
+        .two{
+            position: absolute;
+            top: 25%;
+            margin-left: 25%;
+            width: 25%;
+            height: 25%;
+            background-color:orange;
+            border-radius:10px ;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);  
+            z-index: 2;
+        }
+        .box2{
+            animation-name: box-two;
+            animation-duration: 3s;
+            animation-delay: 2s;
+            animation-iteration-count:1;
+            animation-fill-mode: forwards;
+        }
+        @keyframes box-two{
+            0%{
+              left:0px;  
+              z-index:2;
+            }
+            50%{
+                left:60px;
+                z-index: 2;
+            }
+            80%{
+                z-index: 3;
+            }
+            100%{
+                left: 0px;
+                z-index: 3;
+              
+            }
+        }
+               
+        .box22{
+            animation-name: boxtwoback;
+            animation-duration: 5s;
+            animation-delay: 2s;
+            animation-iteration-count: 1; 
+            animation-fill-mode: backwards;
+        }
+
+        @keyframes boxtwoback{
+            0%{
+              left:0px;  
+              z-index:3;
+            }
+            50%{
+                left:60px;
+                z-index: 3;
+            }
+            80%{
+                z-index: 2;
+            }
+            100%{
+                left: 0px;
+                z-index: 2;
+              
+            }
+        }
+        .three{
+            position: absolute;
+            top: 40%;
+            margin-left: 40%;
+            width: 25%;
+            height: 25%;
+            background-color: green;
+            border-radius:10px ;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .box3{
+            animation-name: boxthree;
+            animation-duration: 5s;
+            animation-delay: 2s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+        @keyframes boxthree{
+            0%{
+              left:0px;  
+              z-index:1;
+            }
+            50%{
+                left:60px;
+                z-index: 1;
+            }
+            80%{
+                z-index: 3;
+            }
+            100%{
+                left: 0px;
+                z-index: 3;
+            }
+        }
+
+        .box33{
+            animation-name: boxthreeback;
+            animation-duration: 5s;
+            animation-delay: 2s;
+            animation-iteration-count: 1;
+            animation-fill-mode: backwards;
+        }
+        @keyframes boxthreeback{
+            0%{
+              left:0px;  
+              z-index:3;
+            }
+            50%{
+                left:60px;
+                z-index: 3;
+            }
+            80%{
+                z-index: 1;
+            }
+            100%{
+                left: 0px;
+                z-index: 1;
+            }
+        }
+        .four{ 
+            position: absolute;
+            top: 55%;
+            margin-left: 55%;
+            width: 25%;
+            height: 25%;
+            background-color: blue;
+            border-radius:10px ;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+            
+        }
+
+        .box4{
+            animation-name: boxfour;
+            animation-duration: 5s;
+            animation-delay: 2s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+        @keyframes boxfour{
+            0%{
+              left:0px;  
+              z-index:0;
+            }
+            50%{
+                left:60px;
+                z-index: 0;
+            }
+            80%{
+                z-index: 3;
+            }
+            100%{
+                left: 0px;
+                z-index: 3;
+            }
+        }
+
+        .box44{
+            animation-name: boxfourback;
+            animation-duration: 5s;
+            animation-delay: 2s;
+            animation-iteration-count: 1;
+            animation-fill-mode: backwards;
+        }
+        @keyframes boxfourback{
+            0%{
+              left:0px;  
+              z-index:3;
+            }
+            50%{
+                left:60px;
+                z-index: 3;
+            }
+            80%{
+                z-index: 0;
+            }
+            100%{
+                left: 0px;
+                z-index: 0;
+            }
+        }
+        .first{
+            margin-top: 60%;
+            margin-left: 10%;
+            font-size: 1.5em;
+            border-radius: 10px;
+            border: none;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 100;
+            
+        }
+        .second{
+            margin-top: 60%;
+            margin-left: 10%;
+            font-size: 1.5em;
+            border-radius: 10px;
+            border: none;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 100;
+        }
+        .first:hover,.second:hover{
+            background-color: brown;
+            color: beige;
+            box-shadow: 10px 10px 15px black;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="context">
+            <div  class="one"></div>
+            <div  class="two"></div>
+            <div  class="three"></div>
+            <div  class="four"></div>
+            <input type="button" value="start" onclick="start()" class="first">
+            <input type="button" value="back" onclick="back()" class="second">
+        </div>
+    </div>
+</body>
+<script>
+    let a = 1;
+    function start(){
+        let b = document.querySelector(".two");
+        let c = document.querySelector(".three");
+        let d = document.querySelector(".four")
+        if(a == 1){
+           b.classList.add("box2");
+           b.classList.remove("box22");
+           a=2;
+        }else if(a==2){
+            c.classList.add("box3");
+            c.classList.remove("box33");
+            a=3;
+        }else if(a ==3){
+            d.classList.add("box4");
+            d.classList.remove("box44");
+            a=4;
+        }
+    }
+
+    function back(){
+    let b = document.querySelector(".two");
+    let c = document.querySelector(".three");
+    let d = document.querySelector(".four");
+    
+    if(a ==4){
+        d.classList.add("box44");
+        d.classList.remove("box4");
+        a=3;
+    }
+    else if(a==3){
+        c.classList.add("box33");
+        c.classList.remove("box3");
+        a=2;
+    }
+    else if(a == 2){
+       b.classList.add("box22");
+       b.classList.remove("box2");
+       a=1;
+    }
+    }
+
+</script>
+</html>
